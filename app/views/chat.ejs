@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sala de Chat</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chat/history/list">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chat/list">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Sala de Chat <%= sala %>
+                    </div>
+                    <div class="card-body" id="chat-messages">
+                        <!-- Aquí se mostrarán los mensajes -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="activateChatGPT">
+                                <label class="form-check-label" for="activateChatGPT">Activar ChatGPT</label>
+                            </div>
+                            <input type="text" class="form-control " name="newMsg" id="message-input"
+                                placeholder="Escribe tu mensaje..." required>
+                            <button class="btn btn-primary" type="submit" id="sendButton">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluye Bootstrap JS y Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Incluye Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Script para la lógica del chat con jQuery -->
+    <script src="/js/chat.js"></script>
+    <script>
+        var user = "<%= username %>";
+        var sala = "<%= sala %>";
+
+    </script>
+</body>
+
+</html>
